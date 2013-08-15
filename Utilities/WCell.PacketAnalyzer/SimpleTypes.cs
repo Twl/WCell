@@ -2,6 +2,7 @@ using System;
 using NLog;
 using WCell.Core;
 using WCell.Util;
+using WCell.Util.Logging;
 using WCell.Util.Graphics;
 
 namespace WCell.PacketAnalysis

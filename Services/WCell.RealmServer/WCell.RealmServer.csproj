@@ -127,47 +127,22 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime">
-      <HintPath>..\..\Libraries\Binaries\Castle.ActiveRecord\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.ActiveRecord, Version=2.1.2.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Binaries\Castle.ActiveRecord\Castle.ActiveRecord.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Components.Validator, Version=1.1.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Binaries\Castle.ActiveRecord\Castle.Components.Validator.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Binaries\Castle.ActiveRecord\Castle.Core.dll</HintPath>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\Libraries\Binaries\FluentHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libraries\Binaries\Release\ICSharpCode\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Binaries\Castle.ActiveRecord\Iesi.Collections.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=6.0.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libraries\Binaries\Release\MySql\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Binaries\Castle.ActiveRecord\NHibernate.dll</HintPath>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\Libraries\Binaries\NHibernate\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Binaries\Castle.ActiveRecord\NHibernate.ByteCode.Castle.dll</HintPath>
-    </Reference>
-    <Reference Include="NLog, Version=1.0.0.505, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Source\NLog\bin\Debug\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="Remotion.Data.Linq">
-      <HintPath>..\..\Libraries\Binaries\Castle.ActiveRecord\Remotion.Data.Linq.dll</HintPath>
+    <Reference Include="ParallelExtensionsExtras, Version=1.2.0.0, Culture=neutral, PublicKeyToken=e46dcf2234ff274d, processorArchitecture=MSIL">
+      <HintPath>..\..\Libraries\Binaries\ParallelExtensionsExtras\ParallelExtensionsExtras.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -193,8 +168,8 @@
     <Compile Include="Achievements\AchievementCriteria.cs" />
     <Compile Include="Achievements\AchievementCategoryEntry.cs" />
     <Compile Include="Achievements\AchievementCollection.cs" />
-    <Compile Include="Achievements\AchievementRecord.cs" />
-    <Compile Include="Achievements\AchievementProgressRecord.cs" />
+    <Compile Include="Database\Entities\AchievementRecord.cs" />
+    <Compile Include="Database\Entities\AchievementProgressRecord.cs" />
     <Compile Include="Achievements\AchievementCriteriaRequirement.cs" />
     <Compile Include="Achievements\AchievementReward.cs" />
     <Compile Include="AI\Actions\Movement\AIFollowPathAction.cs" />
@@ -202,6 +177,52 @@
     <Compile Include="AI\Brains\IAIEventsHandler.cs" />
     <Compile Include="Commands\WorldEventCommands.cs" />
     <Compile Include="Content\IModDataHolder.cs" />
+    <Compile Include="Database\Entities\AccountData.cs" />
+    <Compile Include="Database\Entities\ArenaTeamMember.cs" />
+    <Compile Include="Database\Entities\AuraRecord.cs" />
+    <Compile Include="Database\Entities\CharacterRecord.cs" />
+    <Compile Include="Database\Entities\CharacterRelationRecord.cs" />
+    <Compile Include="Database\Entities\ArenaTeamStats.cs" />
+    <Compile Include="Database\Entities\SkillRecord.cs" />
+    <Compile Include="Database\Entities\SpellRecord.cs" />
+    <Compile Include="Database\Entities\EquipmentSet.cs" />
+    <Compile Include="Database\Entities\EquipmentSetItemMapping.cs" />
+    <Compile Include="Database\Entities\Guild.cs" />
+    <Compile Include="Database\Entities\GuildBankLogEntry.cs" />
+    <Compile Include="Database\Entities\GuildBankTab.cs" />
+    <Compile Include="Database\Entities\GuildBankTabItemMapping.cs" />
+    <Compile Include="Database\GuildBankTabRights.cs" />
+    <Compile Include="Database\Entities\GuildEventLogEntry.cs" />
+    <Compile Include="Database\GuildMember.cs" />
+    <Compile Include="Database\GuildRank.cs" />
+    <Compile Include="Database\Entities\ItemRecord.cs" />
+    <Compile Include="Database\Mappings\AchievementProgressRecordMap.cs" />
+    <Compile Include="Database\Mappings\AchievementRecordMap.cs" />
+    <Compile Include="Database\Mappings\ArenaTeamMemberMap.cs" />
+    <Compile Include="Database\Mappings\ArenaTeamStatsMap.cs" />
+    <Compile Include="Database\Mappings\CharacterRecordMap.cs" />
+    <Compile Include="Database\Mappings\AuraRecordMap.cs" />
+    <Compile Include="Database\Mappings\CharacterRelationRecordMap.cs" />
+    <Compile Include="Database\Mappings\EquipmentSetMap.cs" />
+    <Compile Include="Database\Mappings\GuildBankLogEntryMap.cs" />
+    <Compile Include="Database\Mappings\GuildBankTabItemMappingMap.cs" />
+    <Compile Include="Database\Mappings\GuildBankTabMap.cs" />
+    <Compile Include="Database\Mappings\GuildEventLogEntryMap.cs" />
+    <Compile Include="Database\Mappings\GuildMap.cs" />
+    <Compile Include="Database\Mappings\GuildMemberMap.cs" />
+    <Compile Include="Database\Mappings\GuildTabardMap.cs" />
+    <Compile Include="Database\Mappings\InstanceBindingMap.cs" />
+    <Compile Include="Database\Mappings\PetSpellMap.cs" />
+    <Compile Include="Database\Mappings\QuestRecordMap.cs" />
+    <Compile Include="Database\Mappings\RaidRecordMap.cs" />
+    <Compile Include="Database\Mappings\ReputationRecordMap.cs" />
+    <Compile Include="Database\Mappings\SkillRecordMap.cs" />
+    <Compile Include="Database\Mappings\SpellRecordMap.cs" />
+    <Compile Include="Database\Entities\QuestRecord.cs" />
+    <Compile Include="Database\RaidRecord.cs" />
+    <Compile Include="Database\RealmWorldDBMgr.cs" />
+    <Compile Include="Database\Entities\ReputationRecord.cs" />
+    <Compile Include="Database\RealmContentDBMgr.cs" />
     <Compile Include="Editor\Commands\EditorCommand.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -238,6 +259,7 @@
     <Compile Include="Handlers\TotemHandler.cs" />
     <Compile Include="Handlers\WorldStateHandler.cs" />
     <Compile Include="Instances\DungeonInstanceSettings.cs" />
+    <Compile Include="Instances\GlobalInstanceTimerMap.cs" />
     <Compile Include="Instances\InstanceProgress.cs" />
     <Compile Include="Instances\RaidInstanceSettings.cs" />
     <Compile Include="LFG\LFGMgr.cs" />
@@ -273,8 +295,6 @@
     <Compile Include="Commands\Extensions.cs" />
     <Compile Include="Commands\GossipCommand.cs" />
     <Compile Include="Commands\LocalizerCommand.cs" />
-    <Compile Include="Database\ArenaTeamMember.cs" />
-    <Compile Include="Database\ArenaTeamStats.cs" />
     <Compile Include="Entities\Character.Mechanics.cs" />
     <Compile Include="Entities\Character.StatUpdates.cs" />
     <Compile Include="Entities\ObjectTemplate.cs" />
@@ -355,7 +375,6 @@
     <Compile Include="Groups\IGroupConverter.cs" />
     <Compile Include="Groups\PartyGroup.cs" />
     <Compile Include="Groups\RaidGroup.cs" />
-    <Compile Include="Database\CharacterRelationRecord.cs" />
     <Compile Include="Social\CharacterSearch.cs" />
     <Compile Include="Social\RelationMgr.cs" />
     <Compile Include="Social\WhoList.cs" />
@@ -457,6 +476,10 @@
       <Project>{EEA9DEB6-8EA6-46F1-B1B7-AB38D8BBCA6C}</Project>
       <Name>WCell.Core</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\WCell.Database\WCell.Database.csproj">
+      <Project>{359d2064-8f94-4c6d-bead-5f0d28cb2939}</Project>
+      <Name>WCell.Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\WCell.Intercommunication\WCell.Intercommunication.csproj">
       <Project>{5997613F-D2A5-4B86-BEE2-C823BC07D5AF}</Project>
@@ -581,19 +604,12 @@
     <Compile Include="Commands\UnitCommands.cs" />
     <Compile Include="Content\NHibernateConverterProvider.cs" />
     <Compile Include="Content\NHibernateDbWrapper.cs" />
-    <Compile Include="Database\AccountDataRecord.cs" />
-    <Compile Include="Database\EquipmentSet.cs" />
-    <Compile Include="Database\EquipmentSetItemMapping.cs" />
-    <Compile Include="Database\GuildBankTab.cs" />
-    <Compile Include="Database\GuildBankTabItemMapping.cs" />
-    <Compile Include="Database\GuildBankTabRights.cs" />
     <Compile Include="NPCs\PetitionerEntry.cs" />
     <Compile Include="NPCs\Pets\IActivePetSettings.cs" />
     <Compile Include="NPCs\Pets\IPetRecord.cs" />
     <Compile Include="NPCs\Pets\PermanentPetRecord.cs" />
     <Compile Include="NPCs\Pets\PetRecordBase.cs" />
     <Compile Include="NPCs\Pets\PetTalentSpellRecord.cs" />
-    <Compile Include="Database\QuestRecord.cs" />
     <Compile Include="Entities\Character.Maintenance.cs" />
     <Compile Include="Entities\CharacterInformation.cs" />
     <Compile Include="Entities\MoveControl.cs" />
@@ -616,7 +632,6 @@
     <Compile Include="Handlers\AccountDataHandler.cs" />
     <Compile Include="Guilds\GuildBank.cs" />
     <Compile Include="Guilds\GuildBankLog.cs" />
-    <Compile Include="Database\GuildBankLogEntry.cs" />
     <Compile Include="Guilds\GuildBankTab.cs" />
     <Compile Include="Handlers\BattlegroundHandler.cs" />
     <Compile Include="Handlers\CalendarHandler.cs" />
@@ -680,15 +695,6 @@
     <Compile Include="Commands\WorldCommand.cs" />
     <Compile Include="Content\ContentException.cs" />
     <Compile Include="Content\ContentMgr.cs" />
-    <Compile Include="Database\AuraRecord.cs" />
-    <Compile Include="Database\Guild.cs" />
-    <Compile Include="Database\GuildEventLogEntry.cs" />
-    <Compile Include="Database\GuildMember.cs" />
-    <Compile Include="Database\GuildRank.cs" />
-    <Compile Include="Database\RaidRecord.cs" />
-    <Compile Include="Database\ReputationRecord.cs" />
-    <Compile Include="Database\SkillRecord.cs" />
-    <Compile Include="Database\SpellRecord.cs" />
     <Compile Include="Debugging\MapExtensions.cs" />
     <Compile Include="Misc\Duel.cs" />
     <Compile Include="Entities\IEntity.cs" />
@@ -789,7 +795,7 @@
     <Compile Include="Looting\LootRollEntry.cs" />
     <Compile Include="Looting\LootRollProgress.cs" />
     <Compile Include="Misc\CfgCategories.cs" />
-    <Compile Include="Instances\InstanceBinding.cs" />
+    <Compile Include="Database\Entities\InstanceBinding.cs" />
     <Compile Include="Social\IBaseRelation.cs" />
     <Compile Include="Looting\ILootable.cs" />
     <Compile Include="Looting\Loot.cs" />
@@ -829,7 +835,7 @@
     <Compile Include="Formulas\RestGenerator.cs" />
     <Compile Include="Misc\ExtraInfo.cs" />
     <Compile Include="NPCs\Pets\PetMgr.cs" />
-    <Compile Include="NPCs\Pets\PetSpell.cs" />
+    <Compile Include="Database\Entities\PetSpell.cs" />
     <Compile Include="NPCs\Vendors\VendorEntry.cs" />
     <Compile Include="Paths\PathVertex.cs" />
     <Compile Include="Paths\TransportPathVertex.cs" />
@@ -941,9 +947,6 @@
     <Compile Include="Commands\SkillCommands.cs" />
     <Compile Include="Commands\SpellCommands.cs" />
     <Compile Include="Commands\TestCommands.cs" />
-    <Compile Include="Database\CharacterRecord.cs" />
-    <Compile Include="Database\ItemRecord.cs" />
-    <Compile Include="Database\RealmDBMgr.cs" />
     <Compile Include="Mail\MailMessage.cs" />
     <Compile Include="Items\Item.DBC.cs" />
     <Compile Include="Entities\Unit.Damage.cs" />

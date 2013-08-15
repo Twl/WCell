@@ -1,5 +1,4 @@
-using System;
-using NLog;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.Updates;
 using WCell.Core.Cryptography;

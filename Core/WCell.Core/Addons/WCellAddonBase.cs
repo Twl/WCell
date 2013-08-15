@@ -1,5 +1,8 @@
 using System;
 using System.Globalization;
+using WCell.Util.Variables;
+using WCell.Core.Variables;
+using WCell.Util.Logging;
 using System.IO;
 using NLog;
 using WCell.Core.Variables;

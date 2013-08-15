@@ -15,6 +15,9 @@
  *************************************************************************/
 
 using System.IO;
+using System.Text;
+using WCell.Util.Logging;
+using System;
 using Cell.Core;
 using NLog;
 

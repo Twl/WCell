@@ -19,10 +19,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using NLog;
+using System.Reflection;
+using WCell.Util.Logging;
 using WCell.Core.Localization;
 
 namespace WCell.Core

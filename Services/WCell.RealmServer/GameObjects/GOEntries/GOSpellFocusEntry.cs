@@ -1,3 +1,4 @@
+using WCell.Util.Logging;
 using WCell.Constants.Spells;
 
 namespace WCell.RealmServer.GameObjects.GOEntries

@@ -1,4 +1,7 @@
-﻿using NLog;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using WCell.Constants;
 using WCell.Constants.Spells;
 using WCell.Core;
@@ -6,6 +9,7 @@ using WCell.Core.Network;
 using WCell.RealmServer.Entities;
 using WCell.RealmServer.Network;
 using WCell.RealmServer.Spells;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.Handlers
 {

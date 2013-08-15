@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
-using NLog;
+using System.Linq;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.RealmServer.Lang;
 

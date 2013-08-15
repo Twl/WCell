@@ -11,6 +11,7 @@ using WCell.RealmServer.Guilds;
 using WCell.RealmServer.Interaction;
 using WCell.RealmServer.Network;
 using WCell.Util;
+using Guild = WCell.RealmServer.Database.Entities.Guild;
 
 namespace WCell.RealmServer.Handlers
 {

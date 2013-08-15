@@ -9,6 +9,7 @@ using WCell.RealmServer.Entities;
 using WCell.RealmServer.Global;
 using WCell.RealmServer.Groups;
 using WCell.RealmServer.Handlers;
+using WCell.Util.Logging;
 using WCell.Util;
 using WCell.Util.DynamicAccess;
 using WCell.Util.Graphics;

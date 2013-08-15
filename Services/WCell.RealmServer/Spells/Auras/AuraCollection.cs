@@ -18,13 +18,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NLog;
+using WCell.RealmServer.Database.Entities;
+using WCell.Util.Logging;
 using WCell.Constants.Spells;
 using WCell.RealmServer.Chat;
 using WCell.RealmServer.Database;
 using WCell.RealmServer.Entities;
 using WCell.Util;
-using WCell.Util.NLog;
+using WCell.RealmServer.Chat;
 
 namespace WCell.RealmServer.Spells.Auras
 {
@@ -1110,7 +1111,7 @@ namespace WCell.RealmServer.Spells.Auras
 		/// <summary>
 		/// Called after Character entered world to load all it's active Auras
 		/// </summary>
-		internal void InitializeAuras(AuraRecord[] records)
+		internal void InitializeAuras(IEnumerable<AuraRecord> records)
 		{
 			foreach (var record in records)
 			{

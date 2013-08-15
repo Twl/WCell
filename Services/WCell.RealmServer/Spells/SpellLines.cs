@@ -1,5 +1,6 @@
 using WCell.Constants;
 using WCell.Constants.Spells;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.Spells
 {
@@ -7,6 +8,7 @@ namespace WCell.RealmServer.Spells
 	{
 		public static readonly SpellLine[][] SpellLinesByClass = new SpellLine[(int)ClassId.End][];
 		public static readonly SpellLine[] ById = new SpellLine[(int)SpellLineId.End + 100];
+	    public static Logger log = LogManager.GetCurrentClassLogger();
 
 		public static SpellLine GetLine(this SpellLineId id)
 		{

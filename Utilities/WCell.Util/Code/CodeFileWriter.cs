@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using NLog;
-using WCell.Util.NLog;
+using WCell.Util.Logging;
 
 namespace WCell.Util.Code
 {

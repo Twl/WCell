@@ -1,4 +1,4 @@
-﻿/*************************************************************************
+/*************************************************************************
  *
  *   file		: Manager.cs
  *   copyright		: (C) The WCell Team
@@ -15,6 +15,9 @@
  *************************************************************************/
 
 using System;
+using WCell.Util.Logging;
+using Cell.Core;
+using WCell.Core.Localization;
 using WCell.Util.Threading;
 
 namespace WCell.Core

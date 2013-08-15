@@ -1,7 +1,6 @@
 using System.IO;
 using System.Threading;
-using WCell.AuthServer.Accounts;
-using WCell.Core.Initialization;
+using WCell.AuthServer.Database.Entities;
 using WCell.Intercommunication.DataTypes;
 using WCell.Util.Commands;
 using WCell.Util.Strings;

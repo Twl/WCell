@@ -16,7 +16,7 @@
 
 using System;
 using System.Reflection;
-using NLog;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Core.Initialization;
 using WCell.Core.Network;
@@ -25,7 +25,6 @@ using WCell.RealmServer.Debugging;
 using WCell.RealmServer.Handlers;
 using WCell.RealmServer.Res;
 using WCell.Util;
-using WCell.Util.NLog;
 using WCell.Util.Threading;
 
 namespace WCell.RealmServer.Network

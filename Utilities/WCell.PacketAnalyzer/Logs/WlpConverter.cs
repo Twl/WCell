@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using NLog;
 using WCell.Constants;
 using WCell.Core.Network;
 using WCell.Util;
+using WCell.Util.Logging;
 
 namespace WCell.PacketAnalysis.Logs
 {

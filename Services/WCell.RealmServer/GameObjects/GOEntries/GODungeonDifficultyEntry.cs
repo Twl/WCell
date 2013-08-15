@@ -1,3 +1,5 @@
+using WCell.Util.Logging;
+
 namespace WCell.RealmServer.GameObjects.GOEntries
 {
     public class GODungeonDifficultyEntry : GOEntry

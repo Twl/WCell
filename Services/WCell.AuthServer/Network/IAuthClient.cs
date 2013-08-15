@@ -15,7 +15,7 @@
  *************************************************************************/
 
 using Cell.Core;
-using WCell.AuthServer.Accounts;
+using WCell.AuthServer.Database.Entities;
 using WCell.Core;
 using WCell.Core.Cryptography;
 

@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Xml.Serialization;
-using NLog;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.Login;
 using WCell.Constants.Realm;
@@ -30,8 +30,11 @@ using WCell.RealmServer.Handlers;
 using WCell.RealmServer.Lang;
 using WCell.RealmServer.Res;
 using WCell.Util;
-using WCell.Util.NLog;
 using WCell.Util.Variables;
+using WCell.RealmServer.Global;
+using WCell.RealmServer.Handlers;
+using WCell.RealmServer.Addons;
+
 using RealmServ = WCell.RealmServer.RealmServer;
 
 namespace WCell.RealmServer
@@ -45,7 +48,7 @@ namespace WCell.RealmServer
 	{
 		private static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
-		private const string ConfigFilename = "RealmServerConfig.xml";
+		private const string ConfigFilename = "WCell.RealmServer.Config.xml";
 
 	    public static RealmServerConfiguration Instance { get; private set; }
 
@@ -337,17 +340,30 @@ namespace WCell.RealmServer
 		/// </summary>
 		public static string DatabaseType = "mysql5";
 
-		private static string _dbConnectionString = @"Server=127.0.0.1;Port=3306;Database=WCellRealmServer;CharSet=utf8;Uid=root;Pwd=;";
+		private static string dbWorldConnectionString = @"Server=127.0.0.1;Port=3306;Database=WCellRealmServerWorld;CharSet=utf8;Uid=root;Pwd=;";
 
 		/// <summary>
-		/// The connection string for the authentication server database.
+		/// The connection string for the realm server world database.
 		/// </summary>
 		[Variable(IsFileOnly = true)]
-		public static string DBConnectionString
+		public static string DBWorldConnectionString
 		{
-			get { return _dbConnectionString; }
-			set { _dbConnectionString = value; }
+            get { return dbWorldConnectionString; }
+            set { dbWorldConnectionString = value; }
 		}
+
+
+        private static string dbContentConnectionString = @"Server=127.0.0.1;Port=3306;Database=WCellRealmServerContent;CharSet=utf8;Uid=root;Pwd=;";
+
+        /// <summary>
+        /// The connection string for the realm server content database.
+        /// </summary>
+        [Variable(IsFileOnly = true)]
+        public static string DBContentConnectionString
+        {
+            get { return dbContentConnectionString; }
+            set { dbContentConnectionString = value; }
+        }
 
 		/// <summary>
 		/// The address of the auth server.

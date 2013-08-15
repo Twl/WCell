@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using WCell.AuthServer.Database.Entities;
+using WCell.Core;
+using WCell.Constants;
 using System.Net;
 using System.Threading;
 using WCell.AuthServer.Database;
@@ -25,12 +29,12 @@ namespace WCell.AuthServer.Firewall
 		{
 			try
 			{
-				m_bans = BanEntry.FindAll().ToList();
+				m_bans = AuthDBMgr.DatabaseProvider.FindAll<BanEntry>().ToList();
 			}
 			catch (Exception e)
 			{
 				AuthDBMgr.OnDBError(e);
-				m_bans = BanEntry.FindAll().ToList();
+				m_bans = AuthDBMgr.DatabaseProvider.FindAll<BanEntry>().ToList();
 			}
 		}
 
@@ -148,7 +152,7 @@ namespace WCell.AuthServer.Firewall
 					reason
 				);
 
-				ban.Save();
+				AuthDBMgr.DatabaseProvider.Save(ban);
 				m_bans.Add(ban);
 
 				return ban;
@@ -171,7 +175,7 @@ namespace WCell.AuthServer.Firewall
 					reason
 				);
 
-				ban.Save();
+				AuthDBMgr.DatabaseProvider.Save(ban);
 				m_bans.Add(ban);
 
 				return ban;

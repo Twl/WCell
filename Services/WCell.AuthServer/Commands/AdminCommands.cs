@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using WCell.AuthServer.Accounts;
-using WCell.AuthServer.Firewall;
+using WCell.AuthServer.Database;
+using WCell.AuthServer.Database.Entities;
 using WCell.AuthServer.Privileges;
 using WCell.Core;
-using WCell.Core.Database;
+using WCell.Util.Commands;
+using WCell.AuthServer.Accounts;
+using WCell.AuthServer.Firewall;
 using WCell.Util;
 using WCell.Util.Commands;
 
@@ -53,7 +55,7 @@ namespace WCell.AuthServer.Commands
 			public override void Process(CmdTrigger<AuthServerCmdArgs> trigger)
 			{
 				trigger.Reply("Recreating Database Schema...");
-				DatabaseUtil.CreateSchema();
+				AuthDBMgr.DatabaseProvider.CreateSchema();
 				AccountMgr.Instance.ResetCache();
 				trigger.Reply("Done.");
 			}
@@ -70,10 +72,10 @@ namespace WCell.AuthServer.Commands
 
 			public override void Process(CmdTrigger<AuthServerCmdArgs> trigger)
 			{
-				var settings = DatabaseUtil.Settings;
-				var session = DatabaseUtil.Session;
+				var databaseProvider = AuthDBMgr.DatabaseProvider;
+				var session = databaseProvider.Session;
 
-				trigger.Reply("DB Provider: " + settings.Dialect.GetType().Name);
+				trigger.Reply("DB Provider: " + databaseProvider.CurrentDialect.GetType().Name);
 				trigger.Reply(" State: " + session.Connection.State);
 				trigger.Reply(" Database: " + session.Connection.Database);
 				trigger.Reply(" Connection String: " + session.Connection.ConnectionString);
@@ -415,7 +417,7 @@ namespace WCell.AuthServer.Commands
 				{
 					foreach (var ban in bans)
 					{
-						ban.DeleteAndFlush();
+						AuthDBMgr.DatabaseProvider.Delete(ban);
 					}
 					trigger.Reply("Deleted {0} matching Ban(s): " + bans.ToString(", "), bans.Count);
 				}

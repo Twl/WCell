@@ -16,7 +16,12 @@
 
 using System;
 using System.Collections.Generic;
-using WCell.Constants;
+using System.Linq;
+using WCell.RealmServer.Lang;
+using WCell.RealmServer.NPCs;
+using WCell.RealmServer.NPCs.Pets;
+using WCell.Util.Collections;
+using WCell.Util.Logging;
 using WCell.Constants.Spells;
 using WCell.Core;
 using WCell.Core.DBC;

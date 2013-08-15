@@ -17,7 +17,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NLog;
+using Cell.Core;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.Pets;
 using WCell.Constants.Spells;
@@ -32,10 +33,8 @@ using WCell.RealmServer.Misc;
 using WCell.RealmServer.Network;
 using WCell.RealmServer.Spells.Auras;
 using WCell.Util;
-using WCell.Util.Graphics;
-using WCell.Util.NLog;
-using WCell.Util.ObjectPools;
-using WCell.Util.Threading;
+using WCell.RealmServer.Global;
+using WCell.RealmServer.Misc;
 
 namespace WCell.RealmServer.Spells
 {

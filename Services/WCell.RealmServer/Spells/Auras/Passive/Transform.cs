@@ -14,7 +14,7 @@
  *
  *************************************************************************/
 
-using NLog;
+using WCell.Util.Logging;
 using WCell.RealmServer.NPCs;
 
 namespace WCell.RealmServer.Spells.Auras.Handlers

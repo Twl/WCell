@@ -1,4 +1,8 @@
-﻿using NLog;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.Misc;
 using WCell.Core.Network;

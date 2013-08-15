@@ -20,8 +20,7 @@ using System.Threading;
 using WCell.Constants;
 using WCell.RealmServer.Handlers;
 using WCell.RealmServer.Stats;
-using WCell.Util.Collections;
-using WCell.Util.NLog;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.Network
 {

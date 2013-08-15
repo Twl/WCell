@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
-using NLog;
+using WCell.RealmServer.Database.Entities;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.Achievements;
 using WCell.Constants.Items;
@@ -19,8 +20,6 @@ using WCell.RealmServer.Network;
 using WCell.RealmServer.RacesClasses;
 using WCell.RealmServer.Res;
 using WCell.Util;
-using WCell.Util.NLog;
-using WCell.Util.Threading;
 
 namespace WCell.RealmServer.Handlers
 {

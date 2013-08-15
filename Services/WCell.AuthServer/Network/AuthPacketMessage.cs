@@ -1,5 +1,5 @@
 using System;
-using WCell.Util.NLog;
+using WCell.Util.Logging;
 using WCell.Util.Threading;
 
 namespace WCell.AuthServer.Network

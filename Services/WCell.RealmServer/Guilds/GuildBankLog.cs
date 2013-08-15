@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using WCell.Constants.Guilds;
 using WCell.RealmServer.Database;
+using WCell.RealmServer.Database.Entities;
 using WCell.RealmServer.Entities;
 using WCell.Util;
 
@@ -23,7 +24,7 @@ namespace WCell.RealmServer.Guilds
 
 		private static void OnEntryDeleted(GuildBankLogEntry obj)
 		{
-			obj.DeleteLater();
+			RealmWorldDBMgr.DatabaseProvider.Delete(obj);
 		}
 
 		public GuildBank Bank
@@ -94,17 +95,17 @@ namespace WCell.RealmServer.Guilds
 			} // end foreach
 		}
 
-		public void LogEvent(GuildBankLogEntryType type, Character chr, ItemRecord item, GuildBankTab intoTab)
+		public void LogEvent(GuildBankLogEntryType type, Character chr, ItemRecord item, Database.Entities.GuildBankTab intoTab)
 		{
 			LogEvent(type, chr, item, item.Amount, intoTab);
 		}
 
-		public void LogEvent(GuildBankLogEntryType type, Character chr, ItemRecord item, int amount, GuildBankTab intoTab)
+		public void LogEvent(GuildBankLogEntryType type, Character chr, ItemRecord item, int amount, Database.Entities.GuildBankTab intoTab)
 		{
 			LogEvent(type, chr, 0, item, amount, intoTab);
 		}
 
-		public void LogEvent(GuildBankLogEntryType type, Character member, uint money, ItemRecord item, int amount, GuildBankTab intoTab)
+		public void LogEvent(GuildBankLogEntryType type, Character member, uint money, ItemRecord item, int amount, Database.Entities.GuildBankTab intoTab)
 		{
 			switch (type)
 			{
@@ -173,7 +174,7 @@ namespace WCell.RealmServer.Guilds
 				Created = DateTime.Now
 			};
 
-			entry.CreateLater();
+			RealmWorldDBMgr.DatabaseProvider.SaveOrUpdate(entry);
 
 			lock (itemLogEntries)
 			{
@@ -181,7 +182,7 @@ namespace WCell.RealmServer.Guilds
 			}
 		}
 
-		private void LogItemEvent(GuildBankLogEntryType type, Character actor, ItemRecord record, int amount, GuildBankTab intoTab)
+		private void LogItemEvent(GuildBankLogEntryType type, Character actor, ItemRecord record, int amount, Database.Entities.GuildBankTab intoTab)
 		{
 			var entry = new GuildBankLogEntry(Bank.Guild.Id)
 			{

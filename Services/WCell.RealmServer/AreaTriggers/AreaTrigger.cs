@@ -6,6 +6,7 @@ using WCell.RealmServer.Entities;
 using WCell.Util;
 using WCell.Util.Data;
 using WCell.Util.Graphics;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.AreaTriggers
 {

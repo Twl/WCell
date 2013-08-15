@@ -17,6 +17,12 @@ using WCell.RealmServer.Looting;
 using WCell.RealmServer.Misc;
 using WCell.RealmServer.Quests;
 using WCell.Util.Data;
+using WCell.Util.Logging;
+using System.Collections;
+using WCell.Constants;
+using System;
+using WCell.Constants.Factions;
+using WCell.RealmServer.Factions;
 using WCell.Util.Graphics;
 
 namespace WCell.RealmServer.GameObjects

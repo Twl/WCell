@@ -1,3 +1,5 @@
+using WCell.Util.Logging;
+using WCell.Constants.GameObjects;
 using WCell.Constants.Spells;
 using WCell.Constants.Updates;
 using WCell.RealmServer.Entities;

@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
-using Cell.Core;
-using NLog;
+using System.Linq;
+using System.Text;
+using WCell.Util.Logging;
+using WCell.Core.Network;
+using WCell.Core;
 using WCell.Constants;
 using WCell.Core;
 using WCell.Core.Network;
 using WCell.PacketAnalysis.Logs;
 using WCell.RealmServer;
 using WCell.Util;
-using WCell.Util.NLog;
 
 namespace WCell.PacketAnalysis
 {

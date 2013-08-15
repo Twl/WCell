@@ -25,6 +25,16 @@ using WCell.RealmServer.NPCs.Vendors;
 using WCell.RealmServer.Spells;
 using WCell.Util;
 using WCell.Util.Data;
+using WCell.RealmServer.Battlegrounds;
+using WCell.RealmServer.Entities;
+using System;
+using WCell.RealmServer.Spells;
+using WCell.Constants.Spells;
+using WCell.RealmServer.AI.Brains;
+using WCell.RealmServer.AI;
+using WCell.RealmServer.Items;
+using WCell.Util.Logging;
+using WCell.RealmServer.Global;
 using WCell.Util.Graphics;
 using WCell.Util.Variables;
 

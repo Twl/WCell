@@ -2,6 +2,7 @@ using NLog;
 using WCell.Constants.Spells;
 using WCell.RealmServer.Entities;
 using WCell.RealmServer.NPCs.Vehicles;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.Spells.Auras.Misc
 {

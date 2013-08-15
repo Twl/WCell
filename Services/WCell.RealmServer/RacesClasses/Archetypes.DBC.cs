@@ -4,6 +4,7 @@ using WCell.Constants.Factions;
 using WCell.Constants.Items;
 using WCell.Core.DBC;
 using WCell.RealmServer.Items;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.RacesClasses
 {

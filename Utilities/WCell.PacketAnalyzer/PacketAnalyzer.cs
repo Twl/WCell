@@ -7,6 +7,7 @@ using WCell.PacketAnalysis.Logs;
 using WCell.PacketAnalysis.Updates;
 using WCell.PacketAnalysis.Xml;
 using WCell.Util;
+using WCell.Util.Logging;
 
 namespace WCell.PacketAnalysis
 {

@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Threading;
 using System.Xml;
 using System.Xml.Serialization;
-using NLog;
+using WCell.Util.Logging;
 
 namespace WCell.Util.Xml
 {

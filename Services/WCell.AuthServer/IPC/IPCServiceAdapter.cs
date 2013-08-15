@@ -18,17 +18,20 @@ using System;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using NLog;
-using WCell.AuthServer.Accounts;
-using WCell.AuthServer.Commands;
-using WCell.AuthServer.Privileges;
+using WCell.AuthServer.Database;
+using WCell.AuthServer.Database.Entities;
+using WCell.Util.Logging;
+using resources = WCell.AuthServer.Res.WCell_AuthServer;
 using WCell.Constants;
 using WCell.Constants.Login;
 using WCell.Constants.Realm;
 using WCell.Core.Cryptography;
 using WCell.Intercommunication;
 using WCell.Intercommunication.DataTypes;
-using resources = WCell.AuthServer.Res.WCell_AuthServer;
+using WCell.AuthServer.Privileges;
+using WCell.AuthServer.Accounts;
+using WCell.Constants.Realm;
+using WCell.AuthServer.Commands;
 
 namespace WCell.AuthServer.IPC
 {
@@ -125,6 +128,11 @@ namespace WCell.AuthServer.IPC
             return AuthenticationServer.GetRealmById(GetCurrentId());
         }
 
+		/// <summary>
+		/// Gets the current end point
+		/// Always returns null under mono!
+		/// </summary>
+		/// <returns></returns>
         public RemoteEndpointMessageProperty GetCurrentEndPoint()
         {
             return (RemoteEndpointMessageProperty)OperationContext.Current.IncomingMessageProperties[RemoteEndpointMessageProperty.Name];
@@ -330,6 +338,18 @@ namespace WCell.AuthServer.IPC
             var id = GetCurrentId();
             var realm = AuthenticationServer.GetRealmById(id);
             var ep = GetCurrentEndPoint();
+            string epAddress = "";
+            if(ep == null)
+            {
+            	epAddress = channel.RemoteAddress.Uri.Host;
+            	log.Warn("IPC::RegisterRealmServer Endpoint is null, falling back to: {0}", channel.RemoteAddress.Uri.Host);
+            }
+            else
+            {
+            	epAddress = ep.Address;
+            	log.Info("IPC::RegisterRealmServer Endpoint address is: {0}", ep.Address);
+            }
+			
 
             // find out whether this server is just re-registering (came back online)
             var isNew = realm == null;
@@ -339,11 +359,11 @@ namespace WCell.AuthServer.IPC
                 realm = AuthenticationServer.GetRealmByName(realmName);
                 if (realm == null)
 				{
-					if (!AuthServerConfiguration.RealmIPs.Contains(ep.Address))
+					if (!AuthServerConfiguration.RealmIPs.Contains(epAddress))
 					{
 						// Ignore unknown realms
 						log.Warn("Unallowed Realm (\"{0}\") tried to register from: {1} (For more info, see the <RealmIPs> entry in your configuration)", 
-							realmName, ep.Address, AuthServerConfiguration.Instance.FilePath);
+							realmName, epAddress, AuthServerConfiguration.Instance.FilePath);
 						var chan = OperationContext.Current.Channel;
 						if (chan != null)
 						{
@@ -369,7 +389,7 @@ namespace WCell.AuthServer.IPC
             if (string.IsNullOrEmpty(addr))
             {
                 // no host given
-                addr = ep.Address;
+                addr = epAddress;
             }
 
 			realm.ChannelId = id;
@@ -385,8 +405,8 @@ namespace WCell.AuthServer.IPC
         	realm.ClientVersion = clientVersion;
 
         	realm.Channel = channel;
-            realm.ChannelAddress = ep.Address;
-            realm.ChannelPort = ep.Port;
+            realm.ChannelAddress = epAddress;
+            realm.ChannelPort = ep == null ? channel.RemoteAddress.Uri.Port : ep.Port;
 
 
             if (isNew)
@@ -465,7 +485,7 @@ namespace WCell.AuthServer.IPC
             {
                 acc.RoleGroupName = role;
 
-				AuthenticationServer.IOQueue.AddMessage(acc.SaveAndFlush);
+				AuthenticationServer.IOQueue.AddMessage(() => AuthDBMgr.DatabaseProvider.SaveOrUpdate(acc));
                 return true;
             }
 
@@ -479,7 +499,7 @@ namespace WCell.AuthServer.IPC
             {
                 acc.EmailAddress = email;
 
-				AuthenticationServer.IOQueue.AddMessage(acc.SaveAndFlush);
+				AuthenticationServer.IOQueue.AddMessage(() => AuthDBMgr.DatabaseProvider.SaveOrUpdate(acc));
                 return true;
             }
 
@@ -496,7 +516,7 @@ namespace WCell.AuthServer.IPC
                     acc.IsActive = active;
                     acc.StatusUntil = statusUntil;
 
-					AuthenticationServer.IOQueue.AddMessage(acc.SaveAndFlush);
+					AuthenticationServer.IOQueue.AddMessage(() => AuthDBMgr.DatabaseProvider.SaveOrUpdate(acc));
                     return true;
                 }
             }
@@ -520,7 +540,7 @@ namespace WCell.AuthServer.IPC
 
                 acc.Password = pass;
 
-				AuthenticationServer.IOQueue.AddMessage(acc.SaveAndFlush);
+				AuthenticationServer.IOQueue.AddMessage(() => AuthDBMgr.DatabaseProvider.SaveOrUpdate(acc));
             	return true;
             }
 
@@ -534,7 +554,7 @@ namespace WCell.AuthServer.IPC
             {
                 acc.HighestCharLevel = level;
 
-				AuthenticationServer.IOQueue.AddMessage(acc.SaveAndFlush);
+				AuthenticationServer.IOQueue.AddMessage(() => AuthDBMgr.DatabaseProvider.SaveOrUpdate(acc));
             }
         }
 

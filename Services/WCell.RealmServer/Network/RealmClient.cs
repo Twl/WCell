@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using Cell.Core;
-using NLog;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Core;
 using WCell.Core.Cryptography;
@@ -27,8 +27,7 @@ using WCell.PacketAnalysis;
 using WCell.RealmServer.Debugging;
 using WCell.RealmServer.Entities;
 using WCell.RealmServer.Stats;
-using WCell.Util.NLog;
-using Utility = WCell.Util.Utility;
+using WCell.Util;
 
 namespace WCell.RealmServer.Network
 {

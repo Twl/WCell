@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using NLog;
+using System.Xml;
 using WCell.Constants.NPCs;
 using WCell.Constants.Spells;
 using WCell.Core.Initialization;
@@ -8,6 +8,7 @@ using WCell.RealmServer;
 using WCell.RealmServer.NPCs;
 using WCell.RealmServer.Spells;
 using WCell.Util;
+using WCell.Util.Logging;
 
 namespace WCell.Addons.Default.Vehicles
 {

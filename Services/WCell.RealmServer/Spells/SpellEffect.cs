@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using NLog;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.GameObjects;
 using WCell.Constants.Items;
@@ -30,6 +30,8 @@ using WCell.RealmServer.Entities;
 using WCell.RealmServer.Spells.Auras;
 using WCell.RealmServer.Spells.Auras.Handlers;
 using WCell.Util;
+using WCell.Util.Data;
+using WCell.RealmServer.Spells.Auras;
 
 namespace WCell.RealmServer.Spells
 {

@@ -1,4 +1,5 @@
-using NLog;
+using System.Xml;
+using WCell.Util.Logging;
 using WCell.Util.Variables;
 
 namespace WCell.Core.Variables

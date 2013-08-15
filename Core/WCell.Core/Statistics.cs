@@ -18,7 +18,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
-using NLog;
+using WCell.Core;
+using WCell.Core.Initialization;
+using WCell.Util.Logging;
 using WCell.Util;
 
 namespace WCell.Core

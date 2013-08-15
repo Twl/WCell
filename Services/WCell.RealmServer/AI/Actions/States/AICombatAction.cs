@@ -1,4 +1,5 @@
-using NLog;
+using System;
+using WCell.Util.Logging;
 using WCell.Constants.NPCs;
 using WCell.Constants.Updates;
 using WCell.RealmServer.Entities;

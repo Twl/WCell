@@ -34,6 +34,7 @@ using WCell.RealmServer.Battlegrounds;
 using WCell.RealmServer.Battlegrounds.Arenas;
 using WCell.RealmServer.Chat;
 using WCell.RealmServer.Database;
+using WCell.RealmServer.Database.Entities;
 using WCell.RealmServer.Factions;
 using WCell.RealmServer.Formulas;
 using WCell.RealmServer.GameObjects.Handlers;
@@ -61,6 +62,9 @@ using WCell.RealmServer.Taxi;
 using WCell.RealmServer.Titles;
 using WCell.RealmServer.Trade;
 using WCell.Util.Graphics;
+using WCell.RealmServer.Achievements;
+using WCell.RealmServer.Titles;
+using Guild = WCell.RealmServer.Database.Entities.Guild;
 
 namespace WCell.RealmServer.Entities
 {

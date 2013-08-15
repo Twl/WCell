@@ -1,4 +1,5 @@
 using WCell.AuthServer.Accounts;
+using WCell.AuthServer.Database.Entities;
 using WCell.Util.Commands;
 
 namespace WCell.AuthServer.Commands

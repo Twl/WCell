@@ -16,12 +16,11 @@
 
 using System;
 using System.ServiceModel;
-using NLog;
+using WCell.Util.Logging;
 using WCell.Core.Timers;
 using WCell.Intercommunication.Client;
 using WCell.RealmServer.Lang;
 using WCell.RealmServer.Res;
-using WCell.Util.NLog;
 using WCell.Util.Variables;
 
 namespace WCell.RealmServer.Network
@@ -63,7 +62,7 @@ namespace WCell.RealmServer.Network
 		public AuthenticationClient()
 		{
 			m_IsRunning = true;
-			binding = new NetTcpBinding {Security = {Mode = SecurityMode.None}};
+			binding = new NetTcpBinding(SecurityMode.None);
 		}
 
 		/// <summary>

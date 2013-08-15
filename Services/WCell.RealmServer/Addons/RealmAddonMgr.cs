@@ -1,5 +1,5 @@
 using System.IO;
-using NLog;
+using WCell.Util.Logging;
 using WCell.Core.Addons;
 using WCell.Core.Initialization;
 using WCell.RealmServer.Commands;

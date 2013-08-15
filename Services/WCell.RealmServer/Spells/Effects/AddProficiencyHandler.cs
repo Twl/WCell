@@ -3,6 +3,7 @@ using WCell.Constants;
 using WCell.Constants.Items;
 using WCell.Constants.Updates;
 using WCell.RealmServer.Entities;
+using WCell.Util.Logging;
 using WCell.RealmServer.Handlers;
 
 namespace WCell.RealmServer.Spells.Effects

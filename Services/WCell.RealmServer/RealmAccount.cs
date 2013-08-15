@@ -16,7 +16,8 @@
 
 using System;
 using System.Collections.Generic;
-using NLog;
+using WCell.RealmServer.Database.Entities;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.Login;
 using WCell.Core;
@@ -28,9 +29,6 @@ using WCell.RealmServer.Global;
 using WCell.RealmServer.Handlers;
 using WCell.RealmServer.Network;
 using WCell.RealmServer.Privileges;
-using WCell.RealmServer.Res;
-using WCell.Util.NLog;
-using WCell.Util.Threading;
 
 namespace WCell.RealmServer
 {

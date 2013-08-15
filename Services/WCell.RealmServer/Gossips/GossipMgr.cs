@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
-using NLog;
-using WCell.Constants;
-using WCell.Constants.NPCs;
+using WCell.Util.Logging;
 using WCell.Core;
 using WCell.Core.Initialization;
 using WCell.RealmServer.Battlegrounds;

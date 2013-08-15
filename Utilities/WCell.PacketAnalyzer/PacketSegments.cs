@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
-using NLog;
 using WCell.Core;
+using WCell.Util.Logging;
 using WCell.Core.Network;
 using WCell.Util;
 

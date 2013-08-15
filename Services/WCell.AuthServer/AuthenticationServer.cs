@@ -19,17 +19,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.ServiceModel;
+using System.Threading;
 using Cell.Core;
-using WCell.AuthServer.Accounts;
-using WCell.AuthServer.IPC;
 using WCell.AuthServer.Lang;
-using WCell.AuthServer.Network;
 using WCell.Constants.Login;
+using WCell.Util;
+using resources = WCell.AuthServer.Res.WCell_AuthServer;
+using WCell.Util.Collections;
+using WCell.AuthServer.Accounts;
+using WCell.AuthServer.Firewall;
+using WCell.AuthServer.IPC;
+using WCell.AuthServer.Network;
 using WCell.Core;
 using WCell.Intercommunication.DataTypes;
-using WCell.Util.Collections;
 using WCell.Util.Variables;
-using resources = WCell.AuthServer.Res.WCell_AuthServer;
 
 namespace WCell.AuthServer
 {
@@ -37,7 +40,7 @@ namespace WCell.AuthServer
 	/// Server class for the authentication server. Handles all initial 
 	/// incoming connections and does authentication of users.
 	/// </summary>
-	[VariableClass(true)]
+	[VariableClassAttribute(true)]
 	public sealed class AuthenticationServer : ServerApp<AuthenticationServer>
 	{
 		#region Events
@@ -382,7 +385,7 @@ namespace WCell.AuthServer
 				}
 				catch (AddressAlreadyInUseException)
 				{
-					Log.Fatal(resources.AuthServiceAlreadyListening);
+					s_log.Fatal(resources.AuthServiceAlreadyListening);
 					Stop();
 				}
 			}
@@ -457,9 +460,9 @@ namespace WCell.AuthServer
 				AuthServerConfiguration.Instance.Save(true, true);
 			}
 
-			Log.Info("Initiating Shutdown...");
+			s_log.Info("Initiating Shutdown...");
 			IPCServiceHost.StopService();
-			Log.Info("Shutting down...");
+			s_log.Info("Shutting down...");
 		}
 
 		public override string ToString()

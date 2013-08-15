@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Castle.ActiveRecord;
-using NHibernate.Criterion;
-using NLog;
+using System.Linq;
+using System.Text;
+using WCell.RealmServer.Database.Entities;
+using WCell.Util.Logging;
+using WCell.Constants.Spells;
+using WCell.Constants.Talents;
 using WCell.Core.Database;
 using WCell.RealmServer.Database;
 using WCell.RealmServer.Entities;

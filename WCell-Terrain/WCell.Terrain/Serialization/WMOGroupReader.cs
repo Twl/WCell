@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using NLog;
+using WCell.Util.Logging;
 using WCell.MPQTool;
 using WCell.Terrain.MPQ;
 using WCell.Terrain.MPQ.WMOs;

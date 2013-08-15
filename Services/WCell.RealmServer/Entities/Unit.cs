@@ -16,7 +16,7 @@
 
 using System;
 using System.Collections.Generic;
-using NLog;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.Achievements;
 using WCell.Constants.Chat;
@@ -42,7 +42,7 @@ using WCell.RealmServer.Spells.Auras;
 using WCell.RealmServer.Taxi;
 using WCell.Util;
 using WCell.Util.Graphics;
-using WCell.Util.NLog;
+using WCell.Constants.Chat;
 
 namespace WCell.RealmServer.Entities
 {
@@ -604,8 +604,7 @@ namespace WCell.RealmServer.Entities
 		/// </summary>
 		public int PowerRegenPerTickActual
 		{
-			get;
-			internal set;
+			get; internal set;
 		}
 		private int m_PowerRegenPerTick;
 
@@ -645,7 +644,7 @@ namespace WCell.RealmServer.Entities
 				if (_manaRegenPerTickInterrupted != value)
 				{
 					_manaRegenPerTickInterrupted = value;
-					SetFloat(UnitFields.POWER_REGEN_INTERRUPTED_FLAT_MODIFIER + (int)PowerType, value);
+					SetFloat(UnitFields.POWER_REGEN_INTERRUPTED_FLAT_MODIFIER + (int) PowerType, value);
 				}
 			}
 		}

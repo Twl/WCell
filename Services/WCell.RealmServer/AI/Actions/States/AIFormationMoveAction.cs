@@ -1,6 +1,7 @@
 using NLog;
 using WCell.Constants.Updates;
 using WCell.RealmServer.Entities;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.AI.Actions.States
 {

@@ -3,7 +3,7 @@ using NLog;
 using WCell.Constants;
 using WCell.RealmServer.Entities;
 using WCell.RealmServer.GameObjects;
-using WCell.Util.Collections;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.Battlegrounds
 {

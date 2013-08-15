@@ -18,7 +18,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NLog;
+using System.Threading;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.Achievements;
 using WCell.Constants.Factions;
@@ -36,7 +37,9 @@ using WCell.RealmServer.Looting;
 using WCell.RealmServer.Misc;
 using WCell.RealmServer.Network;
 using WCell.Util;
-using WCell.Util.NLog;
+using WCell.RealmServer.Looting;
+using WCell.Constants.Factions;
+using WCell.Constants.Looting;
 using WCell.Util.Threading;
 
 namespace WCell.RealmServer.Groups

@@ -1,3 +1,4 @@
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.RealmServer.Misc;
 using WCell.Util;

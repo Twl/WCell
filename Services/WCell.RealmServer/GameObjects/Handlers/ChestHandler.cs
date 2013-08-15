@@ -1,3 +1,4 @@
+using WCell.Util.Logging;
 using WCell.Constants.GameObjects;
 using WCell.Constants.Looting;
 using WCell.RealmServer.Entities;

@@ -4,6 +4,8 @@ using System.IO;
 using NLog;
 using WCell.Constants;
 using WCell.PacketAnalysis.Updates;
+using WCell.RealmServer;
+using WCell.Util.Logging;
 
 namespace WCell.PacketAnalysis.Logs
 {

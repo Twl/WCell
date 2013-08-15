@@ -23,6 +23,8 @@ using WCell.RealmServer.Spells.Auras.Misc;
 using WCell.RealmServer.Spells.Auras.Mod;
 using WCell.RealmServer.Spells.Auras.Passive;
 using WCell.Util;
+using WCell.RealmServer.Spells.Auras.Misc;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.Spells.Auras
 {

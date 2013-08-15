@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using NLog;
 using WCell.Constants.Achievements;
 using WCell.Constants.Items;
 using WCell.Constants.Spells;
@@ -8,6 +7,7 @@ using WCell.RealmServer.Entities;
 using WCell.RealmServer.Handlers;
 using WCell.RealmServer.Items;
 using WCell.Util;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.NPCs.Vendors
 {

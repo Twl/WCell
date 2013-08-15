@@ -20,6 +20,8 @@ using WCell.Constants.Spells;
 using WCell.Constants.Updates;
 using WCell.RealmServer.NPCs;
 using WCell.Util.Graphics;
+using WCell.Util.Logging;
+
 
 namespace WCell.RealmServer.Spells.Effects
 {

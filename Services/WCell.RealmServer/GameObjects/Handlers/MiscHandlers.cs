@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using NLog;
+using WCell.Util.Logging;
+using WCell.Constants;
 using WCell.Constants.Spells;
 using WCell.Core;
 using WCell.RealmServer.Entities;

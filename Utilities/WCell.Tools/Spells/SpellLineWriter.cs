@@ -14,6 +14,11 @@ using WCell.Tools.Domi;
 using WCell.Util;
 using WCell.Util.Code;
 using WCell.Util.Toolshed;
+using WCell.Util.Logging;
+using WCell.RealmServer.NPCs;
+using WCell.RealmServer.RacesClasses;
+using WCell.RealmServer.Content;
+using WCell.RealmServer.Global;
 
 namespace WCell.Tools.Spells
 {

@@ -5,9 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using WCell.Core.Timers;
 using WCell.Util.Collections;
-using WCell.Util.NLog;
+using WCell.Util.Logging;
 using WCell.Util.Threading;
-using WCell.Util.Threading.TaskParallel;
 
 namespace WCell.Core
 {
@@ -53,7 +52,11 @@ namespace WCell.Core
 					if (value)
 					{
 						// start message loop
-						_updateTask = Task.Factory.StartNewDelayed(m_updateInterval, QueueUpdateCallback, this);
+						_updateTask = Task.Factory.StartNew(delegate
+								{
+									Thread.Sleep(m_updateInterval);
+									QueueUpdateCallback(this);
+								});
 					}
 				}
 			}
@@ -262,7 +265,11 @@ namespace WCell.Core
 					if (_running)
 					{
 						// re-register the Update-callback
-						_updateTask = Task.Factory.StartNewDelayed((int)callbackTimeout, QueueUpdateCallback, this);
+						_updateTask = Task.Factory.StartNew(delegate
+								{
+									Thread.Sleep((int)callbackTimeout);
+									QueueUpdateCallback(this);
+								});
 					}
 				}
 			}

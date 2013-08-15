@@ -1,5 +1,7 @@
 using System;
 using System.Reflection;
+using WCell.Core.Localization;
+using WCell.Util.Logging;
 using Cell.Core;
 using NLog;
 using WCell.Core.Localization;

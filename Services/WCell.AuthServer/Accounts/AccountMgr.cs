@@ -1,17 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using NHibernate.Criterion;
-using NLog;
+using WCell.AuthServer.Database.Entities;
+using WCell.Util.Logging;
 using WCell.AuthServer.Database;
 using WCell.Constants;
 using WCell.Core.Cryptography;
 using WCell.Core.Initialization;
-using WCell.Core.Timers;
-using WCell.Util;
-using WCell.Util.NLog;
-using resources = WCell.AuthServer.Res.WCell_AuthServer;
 
 namespace WCell.AuthServer.Accounts
 {
@@ -107,7 +103,7 @@ namespace WCell.AuthServer.Accounts
 		{
 			get
 			{
-				return m_IsCached ? m_cachedAccsById.Count : Account.GetCount();
+				return m_IsCached ? m_cachedAccsById.Count : AuthDBMgr.DatabaseProvider.Count<Account>();
 			}
 		}
 
@@ -227,7 +223,7 @@ namespace WCell.AuthServer.Accounts
 			var lastTime = m_lastResyncTime;
 			m_lastResyncTime = DateTime.Now;
 
-			Account[] accounts = null;
+			IEnumerable<Account> accounts = null;
 			try
 			{
 				using (m_lock.EnterWriteLock())
@@ -244,14 +240,14 @@ namespace WCell.AuthServer.Accounts
 					//}
 					m_cachedAccsById.Clear();
 					m_cachedAccsByName.Clear();
-					accounts = Account.FindAll();
+					accounts = AuthDBMgr.DatabaseProvider.FindAll<Account>();
 				}
 			}
 			catch (Exception e)
 			{
 #if DEBUG
 				AuthDBMgr.OnDBError(e);
-				accounts = Account.FindAll();
+				accounts = AuthDBMgr.DatabaseProvider.FindAll<Account>();
 #else
 				throw e;
 #endif
@@ -330,13 +326,13 @@ namespace WCell.AuthServer.Accounts
 
 				try
 				{
-					usr.CreateAndFlush();
+					AuthDBMgr.DatabaseProvider.Save(usr);
 				}
 				catch (Exception e)
 				{
 #if DEBUG
 					AuthDBMgr.OnDBError(e);
-					usr.CreateAndFlush();
+					AuthDBMgr.DatabaseProvider.Save(usr);
 #else
 					throw e;
 #endif
@@ -394,7 +390,8 @@ namespace WCell.AuthServer.Accounts
 				}
 			}
 
-			return Account.Exists((ICriterion)Restrictions.InsensitiveLike("Name", accName, MatchMode.Exact));
+			return AuthDBMgr.DatabaseProvider.Exists<Account>(account => account.Name.Equals(accName, StringComparison.OrdinalIgnoreCase));
+			//return Account.Exists((ICriterion)Restrictions.InsensitiveLike("Name", accName, MatchMode.Exact)); TODO: Find out if the above is more inefficient
 		}
 
 		public static Account GetAccount(string accountName)
@@ -420,7 +417,7 @@ namespace WCell.AuthServer.Accounts
 						return acc;
 					}
 				}
-				return Account.FindOne(Restrictions.Eq("Name", accountName));
+				return AuthDBMgr.DatabaseProvider.FindOne<Account>(Restrictions.Eq("Name", accountName));
 			}
 		}
 
@@ -440,12 +437,12 @@ namespace WCell.AuthServer.Accounts
 				}
 				try
 				{
-					return Account.FindOne(Restrictions.Eq("AccountId", id));
+					return AuthDBMgr.DatabaseProvider.FindOne <Account>(Restrictions.Eq("AccountId", id));
 				}
 				catch (Exception e)
 				{
 					AuthDBMgr.OnDBError(e);
-					return Account.FindOne(Restrictions.Eq("AccountId", id));
+					return AuthDBMgr.DatabaseProvider.FindOne<Account>(Restrictions.Eq("AccountId", id));
 				}
 			}
 		}

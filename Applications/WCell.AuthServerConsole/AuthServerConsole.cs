@@ -18,7 +18,6 @@ using System;
 using System.Threading;
 using WCell.AuthServer;
 using WCell.AuthServer.Commands;
-using WCell.Core.Database;
 
 namespace WCell.AuthServerConsole
 {
@@ -29,7 +28,7 @@ namespace WCell.AuthServerConsole
 		{
 			Console.WriteLine("Console ready - Type ? for help");
 
-			DatabaseUtil.ReleaseConsole();
+			//DatabaseUtil.ReleaseConsole(); TODO: Re-instate if actually required
 
 			while (true)
 			{
@@ -55,12 +54,12 @@ namespace WCell.AuthServerConsole
 				{
 					break;
 				}
-				if (DatabaseUtil.IsWaiting)
+				/*if (DatabaseUtil.IsWaiting)
 				{
-					DatabaseUtil.Input.Write(line);
+					DatabaseUtil.Input.Write(line); TODO: Re-instate if required
 				}
 				else
-				{
+				{*/
 					lock (Console.Out)
 					{
 						if (line.StartsWith("."))
@@ -73,7 +72,7 @@ namespace WCell.AuthServerConsole
 							AuthCommandHandler.Execute(null, line);
 						}
 					}
-				}
+				//}
 			}
 		}
 	}

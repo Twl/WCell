@@ -1,5 +1,6 @@
-using System.Collections.Generic;
-using NLog;
+using System;
+using WCell.Util.Logging;
+using WCell.Constants;
 using WCell.Constants.Items;
 using WCell.Constants.Spells;
 using WCell.Core;

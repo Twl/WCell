@@ -40,9 +40,12 @@ using WCell.RealmServer.Spells;
 using WCell.RealmServer.Talents;
 using WCell.Tools.Spells;
 using WCell.Util;
+using WCell.Util.Logging;
 using WCell.Util.Code;
-using WCell.Util.NLog;
 using WCell.Util.Toolshed;
+using WCell.RealmServer.Content;
+using WCell.RealmServer;
+
 
 namespace WCell.Tools.Domi
 {

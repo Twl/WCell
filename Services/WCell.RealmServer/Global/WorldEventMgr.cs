@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NLog;
+using System.Text;
+using System.Threading.Tasks;
+using WCell.Util.Logging;
+using WCell.Constants.Quests;
 using WCell.Core.Initialization;
 using WCell.RealmServer.Content;
 using WCell.RealmServer.GameObjects;
@@ -9,7 +12,6 @@ using WCell.RealmServer.NPCs;
 using WCell.RealmServer.Quests;
 using WCell.RealmServer.Spells;
 using WCell.Util;
-using WCell.Util.Variables;
 
 namespace WCell.RealmServer.Global
 {	

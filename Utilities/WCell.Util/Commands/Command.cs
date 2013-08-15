@@ -14,7 +14,11 @@
  *
  *************************************************************************/
 
-using NLog;
+using System;
+using System.Collections.Generic;
+using WCell.Util.Logging;
+using System.Reflection;
+using WCell.Util;
 
 namespace WCell.Util.Commands
 {

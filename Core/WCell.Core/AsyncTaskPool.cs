@@ -1,11 +1,10 @@
 using System;
-using System.Diagnostics;
-using System.Threading;
 using System.Threading.Tasks;
-using NLog;
+using WCell.Util.Logging;
+using System.Threading;
+using System.Diagnostics;
 using WCell.Util.Collections;
 using WCell.Util.Threading;
-using WCell.Util.Threading.TaskParallel;
 
 namespace WCell.Core
 {

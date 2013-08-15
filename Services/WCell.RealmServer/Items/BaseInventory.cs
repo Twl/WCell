@@ -1,14 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using NLog;
+using System.Linq;
+using WCell.Util.Logging;
 using WCell.Constants.Items;
 using WCell.Constants.Updates;
 using WCell.Core;
 using WCell.RealmServer.Entities;
 using WCell.RealmServer.Handlers;
 using WCell.Util;
-using WCell.Util.NLog;
 
 namespace WCell.RealmServer.Items
 {

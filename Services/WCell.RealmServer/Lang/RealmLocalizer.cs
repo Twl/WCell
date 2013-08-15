@@ -2,6 +2,7 @@ using System;
 using WCell.Constants;
 using WCell.Core.Initialization;
 using WCell.Util.Lang;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.Lang
 {

@@ -18,10 +18,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using NLog;
+using WCell.Util.Logging;
 using WCell.Core.Localization;
 using WCell.Util;
-using WCell.Util.NLog;
 
 namespace WCell.Core.Initialization
 {
@@ -167,7 +166,7 @@ namespace WCell.Core.Initialization
 		{
 			foreach (var type in asm.GetTypes())
 			{
-				var mgrAttr = type.GetCustomAttributes<GlobalMgrAttribute>().FirstOrDefault();
+				var mgrAttr = type.GetCustomAttributes<GlobalMgrAttribute>().FirstOrDefault(); //TODO: This call is ambigious in net 4.5
 				if (mgrAttr != null)
 				{
 					UnresolvedDependencies.Add(type, new GlobalMgrInfo());

@@ -4,7 +4,9 @@ using System.Linq;
 using WCell.Constants.Updates;
 using WCell.Util;
 using WCell.Util.Collections;
-using WCell.Util.NLog;
+using WCell.Constants.Updates;
+using WCell.Constants.World;
+using WCell.Util.Logging;
 using WCell.Util.Threading;
 
 namespace WCell.RealmServer.Entities

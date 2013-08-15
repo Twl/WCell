@@ -17,7 +17,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NLog;
+using WCell.Core.Paths;
+using WCell.RealmServer.Lang;
+using WCell.RealmServer.Looting;
+using WCell.RealmServer.NPCs;
+using WCell.Util.Collections;
+using WCell.Util.Logging;
 using WCell.Constants;
 using WCell.Constants.Factions;
 using WCell.Constants.Misc;

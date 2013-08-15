@@ -1,6 +1,13 @@
-using NLog;
-using WCell.Constants.Spells;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using WCell.RealmServer.Entities;
+using WCell.Constants.Spells;
+using WCell.RealmServer.Handlers;
+using WCell.Constants;
+using WCell.Constants.Updates;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.Spells.Auras.Misc
 {

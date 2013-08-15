@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using NLog;
+using System.Linq;
+using System.Text;
+using WCell.Util.Logging;
 using WCell.Constants.Factions;
 using WCell.Constants.GameObjects;
 using WCell.Constants.NPCs;

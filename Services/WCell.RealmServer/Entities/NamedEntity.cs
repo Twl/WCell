@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using WCell.RealmServer.Database.Entities;
+using WCell.Util;
 using WCell.Core;
 using WCell.RealmServer.Database;
 using WCell.Util;
@@ -11,7 +17,7 @@ namespace WCell.RealmServer.Entities
 	{
 		public static EntityId CreateId()
 		{
-			return EntityId.GetPlayerId(CharacterRecord.NextId());
+			return EntityId.GetPlayerId((uint)CharacterRecord.NextId());
 		}
 
 

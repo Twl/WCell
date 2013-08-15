@@ -18,16 +18,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using NLog;
 using WCell.Constants;
 using WCell.Constants.Relations;
 using WCell.Core;
 using WCell.Core.Initialization;
 using WCell.RealmServer.Database;
+using WCell.RealmServer.Database.Entities;
 using WCell.RealmServer.Entities;
 using WCell.RealmServer.Global;
 using WCell.RealmServer.Res;
-using WCell.Util.NLog;
+using WCell.Util.Logging;
 
 namespace WCell.RealmServer.Interaction
 {
